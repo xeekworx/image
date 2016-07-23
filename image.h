@@ -32,6 +32,7 @@ namespace xeekworx {
 		const uint32_t pitch() const { return width() * channels(); }
 		uint32_t length() const { return static_cast<uint32_t>(m_buffer.size()); }
 		bool empty() const { return m_buffer.empty(); }
+		
 		void reset() { m_buffer.clear(); m_width = 0; m_height = 0; }
 		void flip(const uint32_t type);
 		void clear(const uint32_t color = 0x00000000);
