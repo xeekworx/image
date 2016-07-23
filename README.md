@@ -15,7 +15,7 @@ You can construct an image object one of three ways:
  2. **image(const uint32_t width, const uint32_t height)**
 - Create a blank image object with the given width and height. The pixels are initialized to 0,0,0,0.
  3. **image(const std::string& file)**
- - Create an image object by loading an image file. This can be JPEG, PNG, BMP, PSD, TGA, GIF, HDR, PIC, PPM, and PGM.
+- Create an image object by loading an image file. This can be JPEG, PNG, BMP, PSD, TGA, GIF, HDR, PIC, PPM, and PGM.
 
 LOADING & SAVING MEMBER FUNCTIONS:
 ------------
