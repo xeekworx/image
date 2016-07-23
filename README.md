@@ -93,4 +93,5 @@ PARAMETERS:
 **const byte& operator\[\](const int i) const**<br/>
 DESCRIPTION: Returns a const reference to the pixel at index i.<br/>
 PARAMETERS:
-*const int i* - The index of the pixel to return.
+
+- *const int i* - The index of the pixel to return.
