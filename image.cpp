@@ -111,6 +111,17 @@ void image::resize(const uint32_t new_width, const uint32_t new_height)
 	delete[] new_pixels;
 }
 
+void image::grayscale(const bool preserve_alpha)
+{
+	struct pixel { uint8_t r, g, b, a; };
+	pixel * buffer = (pixel *) pixels();
+
+	for(uint32_t i = 0; i < width() * height(); ++i) {
+		buffer[i].r = buffer[i].g = buffer[i].b = 0.2989*buffer[i].r + 0.5870*buffer[i].g + 0.1140*buffer[i].b;
+		if(!preserve_alpha) buffer[i].a = 255;
+	}
+}
+
 void image::load(const std::string& file)
 {
 	if(!empty()) m_buffer.clear();

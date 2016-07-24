@@ -47,6 +47,7 @@ int main(int argc, char *argv[])
 			if(flip_type != 0) {
 				img->flip(flip_type);
 			}
+			img->grayscale();
 			preview = std::make_unique<xeekworx::image_sdlpreview>("Xeekworx Image Preview", *img);
 		}
 		catch(std::exception e) {

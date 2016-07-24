@@ -37,6 +37,7 @@ namespace xeekworx {
 		void flip(const uint32_t type);
 		void clear(const uint32_t color = 0x00000000);
 		void resize(const uint32_t new_width, const uint32_t new_height);
+		void grayscale(const bool preserve_alpha = true);
 
 		byte& operator[](const int i) { return m_buffer[i]; }
 		const byte& operator[](const int i) const { return m_buffer[i]; }

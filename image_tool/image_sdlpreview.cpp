@@ -19,11 +19,15 @@ image_sdlpreview::image_sdlpreview(const std::string& title, const image& source
 		SDL_SetWindowData(m_sdlwindow, "this", this);
 	}
 
+	int bpp = 0;
+	uint32_t rmask = 0, gmask = 0, bmask = 0, amask = 0;
+	SDL_PixelFormatEnumToMasks(SDL_PIXELFORMAT_ABGR8888, &bpp, &rmask, &gmask, &bmask, &amask);
+
 	if(NULL == (m_image_surface = SDL_CreateRGBSurfaceFrom(
 		(void *) source.pixels(),
 		source.width(), source.height(),
 		source.bits(), source.pitch(),
-		0xFF000000, 0x00FF0000, 0x0000FF00, 0x000000FF)))
+		rmask, gmask, bmask, amask)))
 	{
 		destroy();
 		throw std::exception(SDL_GetError());
