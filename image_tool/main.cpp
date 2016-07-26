@@ -7,6 +7,7 @@ int main(int argc, char *argv[])
 {
 	std::string image_path;
 	uint32_t flip_type = 0;
+	bool grayscale = false;
 	SDL_Event event = { 0 };
 	int should_quit = 0;
 
@@ -22,6 +23,7 @@ int main(int argc, char *argv[])
 		else {
 			if(arg == "-f") flip_type |= xeekworx::image::flip_type::vertical;
 			else if(arg == "-m") flip_type |= xeekworx::image::flip_type::horizontal;
+			else if(arg == "-g") grayscale = true;
 			else {
 				std::cout << "Unrecognized option: " << arg << std::endl;
 				return 0;
@@ -47,7 +49,7 @@ int main(int argc, char *argv[])
 			if(flip_type != 0) {
 				img->flip(flip_type);
 			}
-			img->grayscale();
+			if(grayscale) img->grayscale();
 			preview = std::make_unique<xeekworx::image_sdlpreview>("Xeekworx Image Preview", *img);
 		}
 		catch(std::exception e) {
