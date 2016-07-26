@@ -56,24 +56,21 @@ int main(int argc, char *argv[])
 			return -1;
 		}
 
-		while(!should_quit) {
-			while(SDL_PollEvent(&event)) {
-				switch(event.type) {
-				case SDL_QUIT:
+		while(SDL_WaitEvent(&event) && !should_quit) {
+			preview->handle_event(&event);
+
+			switch(event.type) {
+			case SDL_QUIT:
+				should_quit = 1;
+				break;
+			case SDL_KEYDOWN:
+				switch(event.key.keysym.sym) {
+				case SDLK_ESCAPE:
 					should_quit = 1;
 					break;
-				case SDL_KEYDOWN:
-					switch(event.key.keysym.sym) {
-					case SDLK_ESCAPE:
-						should_quit = 1;
-						break;
-					}
-					break;
 				}
-
-				preview->handle_event(&event);
+				break;
 			}
-			SDL_Delay(1);
 		}
 	}
 
