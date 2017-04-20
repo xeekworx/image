@@ -1,4 +1,4 @@
-![Xeekworx](http://xeekworx.com/images/github/xeekworx_logo.png)
+![Xeekworx](http://xeekworx.com/images/github/xeekworx_logo.png) <br />
 xeekworx::image
 ===========
 **xeekworx::image is a single header/source class that you can easily include with your C++ project that abstracts software image manipulation. The STB library is required, but it's not a compiled library.**
