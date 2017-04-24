@@ -1,2 +1,3 @@
 # Prevent this repository from inappropriately being marked for the programming language C
 stb/* linguist-vendored
+image_tool/SDL/* linguist-vendored
